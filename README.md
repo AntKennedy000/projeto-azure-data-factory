@@ -11,10 +11,10 @@ Provisionar e documentar um ambiente inicial de Azure Data Factory utilizando AR
 ```mermaid
 flowchart LR
     A[Azure Cloud Shell] --> B[ARM Template]
-    B --> C[Resource Group\nrg-dio-datafactory]
-    C --> D[Azure Data Factory\nadf-dio-kennedy-2026]
-    D --> E[Azure Monitor\nMétricas]
-    C --> F[Cost Management\nOrçamento e alertas]
+    B --> C[Resource Group<br/>rg-dio-datafactory]
+    C --> D[Azure Data Factory<br/>adf-dio-kennedy-2026]
+    D --> E[Azure Monitor<br/>Métricas]
+    C --> F[Cost Management<br/>Orçamento e alertas]
     E --> G[Azure Dashboard]
     F --> G
 ```
@@ -57,14 +57,14 @@ flowchart LR
 ```text
 .
 ├── evidencias/
-│   ├── 01-resources-manager.png
-│   ├── 02-data-factory.png
-│   ├── 03-data-factory-studio.png
-│   ├── 04-cloud-shell-arm-deployment.png
-│   ├── 05-orcamento-custos.png
-│   ├── 06-analise-custo-assinatura.png
-│   ├── 07-metricas-data.png
-│   └── 08-dashboard-azure.png
+│   ├── 01-resources-manager.png.png
+│   ├── 02-data-factory.png.png
+│   ├── 03-data-factory-studio.png.png
+│   ├── 04-cloud-shell-arm-deployment.png.png
+│   ├── 05-orcamento-custos.png.png
+│   ├── 06-analise-custo-assinatura.png.png
+│   ├── 07-metricas-data.png.png
+│   └── 08-dashboard-azure.png.png
 ├── README.md
 └── template.json
 ```
@@ -73,35 +73,35 @@ flowchart LR
 
 ### Resource Group
 
-![Resource Group criado](./evidencias/01-resources-manager.png)
+![Resource Group criado](./evidencias/01-resources-manager.png.png)
 
 ### Azure Data Factory
 
-![Azure Data Factory criado](./evidencias/02-data-factory.png)
+![Azure Data Factory criado](./evidencias/02-data-factory.png.png)
 
 ### Data Factory Studio
 
-![Data Factory Studio](./evidencias/03-data-factory-studio.png)
+![Data Factory Studio](./evidencias/03-data-factory-studio.png.png)
 
 ### Implantação com ARM Template
 
-![Implantação pelo Cloud Shell](./evidencias/04-cloud-shell-arm-deployment.png)
+![Implantação pelo Cloud Shell](./evidencias/04-cloud-shell-arm-deployment.png.png)
 
 ### Orçamento e alertas de custo
 
-![Orçamento de custos](./evidencias/05-orcamento-custos.png)
+![Orçamento de custos](./evidencias/05-orcamento-custos.png.png)
 
 ### Análise de custos
 
-![Análise de custo da assinatura](./evidencias/06-analise-custo-assinatura.png)
+![Análise de custo da assinatura](./evidencias/06-analise-custo-assinatura.png.png)
 
 ### Métricas do Data Factory
 
-![Métricas do Azure Data Factory](./evidencias/07-metricas-data.png)
+![Métricas do Azure Data Factory](./evidencias/07-metricas-data.png.png)
 
 ### Dashboard Azure
 
-![Dashboard Azure](./evidencias/08-dashboard-azure.png)
+![Dashboard Azure](./evidencias/08-dashboard-azure.png.png)
 
 ## Principais aprendizados
 
