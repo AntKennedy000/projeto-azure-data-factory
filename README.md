@@ -143,7 +143,7 @@ O orçamento permite acompanhar o consumo da assinatura e estabelecer limites pa
 
 ### 📷 Evidência
 
-![Orçamento custos](./05%20orcamento%20custos.png)
+![Orçamento custos](./05%20orçamento%20custos.png)
 
 ---
 
