@@ -1,248 +1,124 @@
-# ☁️ Projeto Azure Data Factory
+# Projeto Azure Data Factory com ARM Template
 
-## 📌 Sobre o projeto
+Projeto prático de Cloud Computing e Data Engineering que demonstra o provisionamento de um Azure Data Factory por Infrastructure as Code (IaC), além de monitoramento e controle de custos no Microsoft Azure.
 
-Este projeto foi desenvolvido como parte de uma atividade prática de estudos em **Cloud Computing** e **Data Engineering**, utilizando o ambiente **Microsoft Azure**.
+## Objetivo
 
-O objetivo foi criar e organizar um ambiente utilizando o **Azure Data Factory**, aplicar conceitos de **Infrastructure as Code (IaC)** por meio de **ARM Templates**, utilizar o **Azure Cloud Shell** para implantação via linha de comando e configurar recursos relacionados ao **monitoramento, métricas e controle de custos**.
+Provisionar e documentar um ambiente inicial de Azure Data Factory utilizando ARM Template e Azure Cloud Shell, aplicando também práticas básicas de monitoramento, orçamento e organização de recursos.
 
-Durante a execução também foram analisadas algumas particularidades e limitações encontradas em uma assinatura **Azure Free Trial**, permitindo observar na prática como o gerenciamento de recursos e custos funciona dentro do Azure.
+## Arquitetura
 
----
+```mermaid
+flowchart LR
+    A[Azure Cloud Shell] --> B[ARM Template]
+    B --> C[Resource Group\nrg-dio-datafactory]
+    C --> D[Azure Data Factory\nadf-dio-kennedy-2026]
+    D --> E[Azure Monitor\nMétricas]
+    C --> F[Cost Management\nOrçamento e alertas]
+    E --> G[Azure Dashboard]
+    F --> G
+```
 
-## 🎯 Objetivos
+## Tecnologias utilizadas
 
-- Criar um **Resource Group** para organização dos recursos;
-- Provisionar um **Azure Data Factory**;
-- Acessar e explorar o **Data Factory Studio**;
-- Utilizar o **Azure Cloud Shell**;
-- Aplicar conceitos de **Infrastructure as Code (IaC)**;
-- Criar e utilizar um **ARM Template**;
-- Realizar uma implantação utilizando o Azure CLI;
-- Configurar um **orçamento de custos**;
-- Configurar **alertas de custo**;
-- Explorar as **métricas do Azure Data Factory**;
-- Personalizar um **Azure Dashboard**;
-- Analisar as limitações do gerenciamento de custos em uma conta Azure Free Trial.
+- Microsoft Azure
+- Azure Data Factory V2
+- Azure Resource Manager (ARM Template)
+- Azure Cloud Shell
+- Azure CLI
+- Azure Monitor
+- Cost Management + Billing
+- Azure Dashboard
 
----
-
-## 🏗️ Ambiente utilizado
+## Recursos do ambiente
 
 | Recurso | Configuração |
 |---|---|
-| Provedor | Microsoft Azure |
-| Assinatura | Azure subscription 1 |
-| Tipo de conta | Azure Free Trial |
+| Assinatura | Azure Free Trial |
 | Resource Group | `rg-dio-datafactory` |
-| Data Factory | `adf-dio-kennedy-2026` |
 | Região | Brazil South |
-| Ferramentas | Azure Portal, Azure Cloud Shell e Azure CLI |
+| Azure Data Factory | `adf-dio-kennedy-2026` |
 | IaC | ARM Template |
+| Ferramentas | Azure Portal, Cloud Shell e Azure CLI |
 
----
+## Etapas realizadas
 
-# 🚀 Etapas do projeto
+1. Criação de um Resource Group para organizar os recursos do laboratório.
+2. Provisionamento de um Azure Data Factory V2 na região Brazil South.
+3. Exploração do Azure Data Factory Studio e de seus componentes principais.
+4. Criação de um ARM Template para representar a infraestrutura como código.
+5. Implantação do template pelo Azure Cloud Shell com Azure CLI.
+6. Criação de um orçamento mensal e alertas de custo.
+7. Consulta de métricas do Azure Data Factory.
+8. Criação de um dashboard para centralizar o acompanhamento do ambiente.
 
-## 1. Criação do Resource Group
+## Estrutura do repositório
 
-O primeiro passo foi criar um **Resource Group**, utilizado para organizar e gerenciar os recursos relacionados ao projeto.
+```text
+.
+├── evidencias/
+│   ├── 01-resources-manager.png
+│   ├── 02-data-factory.png
+│   ├── 03-data-factory-studio.png
+│   ├── 04-cloud-shell-arm-deployment.png
+│   ├── 05-orcamento-custos.png
+│   ├── 06-analise-custo-assinatura.png
+│   ├── 07-metricas-data.png
+│   └── 08-dashboard-azure.png
+├── README.md
+└── template.json
+```
 
-O grupo criado foi:
+## Evidências
 
-`rg-dio-datafactory`
+### Resource Group
 
-A utilização de Resource Groups facilita a organização dos recursos, além de permitir o gerenciamento conjunto de permissões, configurações e ciclo de vida.
+![Resource Group criado](./evidencias/01-resources-manager.png)
 
-### 📷 Evidência
+### Azure Data Factory
 
-![Resource Manager](./01%20resources%20manager.png)
+![Azure Data Factory criado](./evidencias/02-data-factory.png)
 
----
+### Data Factory Studio
 
-## 2. Criação do Azure Data Factory
+![Data Factory Studio](./evidencias/03-data-factory-studio.png)
 
-Após a criação do Resource Group, foi provisionado um recurso do tipo **Azure Data Factory (V2)**.
+### Implantação com ARM Template
 
-Configurações principais:
+![Implantação pelo Cloud Shell](./evidencias/04-cloud-shell-arm-deployment.png)
 
-- Nome: `adf-dio-kennedy-2026`
-- Região: `Brazil South`
-- Resource Group: `rg-dio-datafactory`
+### Orçamento e alertas de custo
 
-O Azure Data Factory é um serviço de integração de dados utilizado para criar e gerenciar pipelines capazes de movimentar e transformar dados entre diferentes fontes e destinos.
+![Orçamento de custos](./evidencias/05-orcamento-custos.png)
 
-### 📷 Evidência
+### Análise de custos
 
-![Azure Data Factory](./02%20data%20factory.png)
+![Análise de custo da assinatura](./evidencias/06-analise-custo-assinatura.png)
 
----
+### Métricas do Data Factory
 
-## 3. Exploração do Data Factory Studio
+![Métricas do Azure Data Factory](./evidencias/07-metricas-data.png)
 
-Com o Data Factory provisionado, foi acessado o ambiente **Data Factory Studio**, responsável pela criação e gerenciamento dos componentes de integração de dados.
+### Dashboard Azure
 
-O Studio permite trabalhar com elementos como:
+![Dashboard Azure](./evidencias/08-dashboard-azure.png)
 
-- Pipelines;
-- Datasets;
-- Linked Services;
-- Data Flows;
-- Triggers;
-- Monitoramento das execuções.
+## Principais aprendizados
 
-Nesta etapa foi possível conhecer a interface e a estrutura de desenvolvimento do Azure Data Factory.
+- O Azure Data Factory é um serviço de integração de dados que centraliza a criação e a orquestração de pipelines.
+- O ARM Template permite descrever e provisionar infraestrutura de forma repetível e versionável.
+- O Azure Cloud Shell possibilita executar comandos do Azure CLI diretamente no portal.
+- Orçamentos e alertas contribuem para o uso responsável de uma assinatura de avaliação.
+- Métricas e dashboards ajudam a acompanhar a saúde e a utilização dos recursos em nuvem.
 
-### 📷 Evidência
+## Possíveis evoluções
 
-![Data Factory Studio](./03%20data%20factory%20studio.png)
+- Criar pipelines de cópia entre fontes locais e o Azure Data Lake Storage Gen2.
+- Configurar gatilhos agendados e monitorar as execuções das pipelines.
+- Parametrizar o ARM Template para múltiplos ambientes.
+- Adotar Azure Key Vault para armazenar segredos e credenciais.
+- Automatizar implantações com CI/CD.
 
----
+## Observação sobre custos
 
-## 4. Azure Cloud Shell e ARM Template
-
-Uma das etapas do projeto foi utilizar o **Azure Cloud Shell** para executar comandos do Azure CLI diretamente pelo navegador.
-
-Foi utilizado um **ARM Template** para representar a infraestrutura como código.
-
-O template foi utilizado para realizar a implantação do Azure Data Factory no Resource Group:
-
-`rg-dio-datafactory`
-
-Após a implantação, foi utilizado o Azure CLI para verificar os recursos existentes no Resource Group.
-
-O resultado confirmou o recurso:
-
-`adf-dio-kennedy-2026`
-
-com status:
-
-`Succeeded`
-
-Essa etapa demonstrou na prática o conceito de **Infrastructure as Code (IaC)**, permitindo que a infraestrutura seja descrita por meio de arquivos e implantada de forma automatizada.
-
-### 📷 Evidência
-
-![Cloud Shell ARM Deployment](./04%20cloud%20shell%20arm%20deployment.png)
-
----
-
-## 5. Configuração do orçamento de custos
-
-Para praticar o controle financeiro dos recursos Azure, foi criado um orçamento mensal no **Cost Management**.
-
-Configuração utilizada:
-
-- Nome: `budget-dio-datafactory`
-- Periodicidade: Mensal
-- Orçamento: **R$ 100**
-- Alertas: **50%, 80% e 100%**
-- Tipo de alerta: **Custo real**
-
-O orçamento permite acompanhar o consumo da assinatura e estabelecer limites para receber notificações conforme os gastos se aproximam do valor definido.
-
-### 📷 Evidência
-
-![Orçamento custos](./05%20orçamento%20custos.png)
-
----
-
-## 6. Análise de custos da assinatura
-
-Também foi acessada a área de **Análise de custo** da assinatura Azure.
-
-Durante a atividade, a assinatura apresentou uma limitação relacionada à disponibilidade dos dados de Cost Management.
-
-Mesmo com o orçamento configurado corretamente, a análise detalhada de custos não apresentou dados de utilização naquele momento.
-
-A própria visão geral da assinatura indicava:
-
-- Custo atual: **R$ 0,00**
-- Previsão: **R$ 0,00**
-- Nenhum uso emitido de recurso ativo.
-
-Essa situação foi importante para compreender que a disponibilidade das informações de custos pode variar conforme o tipo de oferta/assinatura e o tempo necessário para que os dados de consumo sejam processados.
-
-### 📷 Evidência
-
-![Análise de custo da assinatura](./06%20analise%20de%20custo%20assinatura.png)
-
----
-
-## 7. Monitoramento por métricas
-
-Foi acessada a área de **Métricas** do Azure Data Factory para visualizar informações de monitoramento do recurso.
-
-Uma das métricas analisadas foi:
-
-**Failed pipeline runs metrics (Count)**
-
-A métrica apresentou valor igual a **0**, indicando que não havia execuções de pipelines com falha no período analisado.
-
-Essa etapa demonstrou como o Azure Monitor pode ser utilizado para acompanhar indicadores relacionados aos recursos implantados.
-
-### 📷 Evidência
-
-![Métricas do Data Factory](./07%20metricas%20data.png)
-
----
-
-## 8. Personalização do Azure Dashboard
-
-Por fim, foi criado e personalizado um **Azure Dashboard** para centralizar informações importantes do projeto.
-
-O dashboard foi configurado com informações relacionadas ao ambiente criado, incluindo:
-
-- Azure Data Factory;
-- Resource Group;
-- Região;
-- Orçamento mensal;
-- Alertas de custo;
-- ARM Template;
-- Azure Cloud Shell.
-
-A utilização de dashboards facilita a visualização e organização das informações relevantes em um único ambiente.
-
-### 📷 Evidência
-
-![Azure Dashboard](./08%20dashboard%20azure.png)
-
----
-
-# 🧩 Infrastructure as Code
-
-Um dos principais aprendizados do projeto foi a utilização do conceito de **Infrastructure as Code (IaC)**.
-
-Em vez de depender exclusivamente da criação manual dos recursos pelo Portal do Azure, o ambiente pode ser representado por meio de um template.
-
-O **ARM Template** utilizado descreve a criação do Azure Data Factory e suas principais propriedades.
-
-Exemplo simplificado da estrutura:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "factoryName": {
-      "type": "string",
-      "defaultValue": "adf-dio-kennedy-2026"
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "Brazil South"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.DataFactory/factories",
-      "apiVersion": "2018-06-01",
-      "name": "[parameters('factoryName')]",
-      "location": "[parameters('location')]",
-      "identity": {
-        "type": "SystemAssigned"
-      },
-      "properties": {}
-    }
-  ]
-}
+O projeto foi desenvolvido em uma assinatura Azure Free Trial. Os recursos devem ser revisados e removidos quando não forem mais necessários, evitando consumo indevido do crédito de avaliação.
