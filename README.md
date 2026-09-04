@@ -122,3 +122,9 @@ flowchart LR
 ## Observação sobre custos
 
 O projeto foi desenvolvido em uma assinatura Azure Free Trial. Os recursos devem ser revisados e removidos quando não forem mais necessários, evitando consumo indevido do crédito de avaliação.
+
+## Autor
+
+Antony Kennedy Ribeiro de Araújo
+
+Projeto desenvolvido como parte do bootcamp Microsoft AI for Tech - Azure Databricks da DIO.
